@@ -1,30 +1,33 @@
 <script>
-	export let name;
+  import Row from "./Row.svelte";
+  let data = [
+    [
+      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
+      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
+      true
+    ],
+    [
+      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
+      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
+      false
+    ]
+  ];
+
+  let rows = data.map(data => {
+    return {
+      original: data[0],
+      translation: data[1],
+      isHighlighted: data[2]
+    };
+  });
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
-
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
 </style>
+
+<main>
+  {#each rows as row}
+    <Row data={row} />
+  {/each}
+</main>

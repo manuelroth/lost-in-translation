@@ -6,6 +6,7 @@
   .row {
     display: flex;
     flex-direction: row;
+    margin-bottom: 8px;
   }
 
   .left,
@@ -14,15 +15,18 @@
   }
 
   .highlighted {
-    background-color: red;
+    color: black;
+    text-decoration: none;
+    border-bottom: 2px solid #dad6ff;
+    box-shadow: 0 -9px #dad6ff inset;
   }
 </style>
 
 <main>
   <div class="row">
     <div class="left">{data.original}</div>
-    <div class="right" class:highlighted={data.isHighlighted}>
-      {data.translation}
+    <div class="right">
+      <span class:highlighted={data.isHighlighted}>{data.translation}</span>
     </div>
   </div>
 </main>

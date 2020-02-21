@@ -6,7 +6,8 @@
   .row {
     display: flex;
     flex-direction: row;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    padding: 0 8px;
   }
 
   .left,

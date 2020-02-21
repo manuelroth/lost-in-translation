@@ -1,4 +1,5 @@
 <script>
+  import Header from "./Header.svelte";
   import Row from "./Row.svelte";
   let data = [
     [
@@ -10,6 +11,26 @@
       "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
       "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
       false
+    ],
+    [
+      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
+      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
+      false
+    ],
+    [
+      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
+      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
+      false
+    ],
+    [
+      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
+      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
+      false
+    ],
+    [
+      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
+      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
+      true
     ]
   ];
 
@@ -27,6 +48,7 @@
 </style>
 
 <main>
+  <Header {data} />
   {#each rows as row}
     <Row data={row} />
   {/each}

@@ -1,5 +1,6 @@
 <script>
-  export let data;
+  export let rows;
+  let readability = rows.filter(row => row.isHighlighted).length;
 </script>
 
 <style>
@@ -12,6 +13,6 @@
 </style>
 
 <div class="highlighted">
-  <span style="font-weight: bold;">{data.readability | 1}</span>
+  <span style="font-weight: bold;">{readability}</span>
   Readability
 </div>

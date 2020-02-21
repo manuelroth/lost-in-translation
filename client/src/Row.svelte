@@ -15,6 +15,14 @@
     width: 50%;
   }
 
+  .left {
+    padding-right: 6px;
+  }
+
+  .right {
+    padding-left: 6px;
+  }
+
   .highlighted {
     color: black;
     text-decoration: none;

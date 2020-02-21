@@ -1,6 +1,6 @@
 <script>
   import Legend from "./Legend.svelte";
-  export let data;
+  export let rows;
 </script>
 
 <style>
@@ -15,14 +15,24 @@
     padding: 0 8px;
     margin-bottom: 16px;
   }
+
+  .left {
+    width: 50%;
+  }
+
+  .right {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 6px;
+  }
 </style>
 
 <div class="header">
-  <div style="width: 50%">Original</div>
-  <div
-    style="width: 50%; display: flex; flex-direction: row; justify-content:
-    space-between;">
+  <div class="left">Original</div>
+  <div class="right">
     <div>Translated</div>
-    <Legend {data} />
+    <Legend {rows} />
   </div>
 </div>

@@ -48,7 +48,7 @@
 </style>
 
 <main>
-  <Header {data} />
+  <Header {rows} />
   {#each rows as row}
     <Row data={row} />
   {/each}

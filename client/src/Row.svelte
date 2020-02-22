@@ -67,7 +67,7 @@
           <span class="highlight--{data.type}">{data.translation}</span>
           <div class="tooltiptext">{data.description}</div>
         </div>
-      {:else}{data.description}{/if}
+      {:else}{data.translation}{/if}
     </div>
   </div>
 </main>

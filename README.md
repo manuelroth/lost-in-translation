@@ -37,3 +37,20 @@ A list of sentences with a "good" and a "bad" translations was collected. Based 
 - Currently there are only a few checks implemented. The project could be extended with more checks in the future. See the list above to see what could be implemented next.
 - The source dataset is very small. It should be extended with more data, which would allow to further improve the checks.
 - The current solution doesn't allow to detect bad translations dynamically. It's not possible to edit the tranlations in the interface directly and see if the translation is improved.
+
+### Develop
+
+```sh
+git clone git@github.com:manuelroth/lost-in-translation.git
+cd lost-in-translation/client/
+npm run dev
+```
+
+### Deploy
+
+```sh
+npm install --global surge
+cd lost-in-translation/client/
+npm run build
+surge public
+```

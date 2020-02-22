@@ -654,7 +654,7 @@ var app = (function () {
 
     // (70:6) {:else}
     function create_else_block(ctx) {
-    	let t_value = /*data*/ ctx[0].description + "";
+    	let t_value = /*data*/ ctx[0].translation + "";
     	let t;
 
     	const block = {
@@ -665,7 +665,7 @@ var app = (function () {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*data*/ 1 && t_value !== (t_value = /*data*/ ctx[0].description + "")) set_data_dev(t, t_value);
+    			if (dirty & /*data*/ 1 && t_value !== (t_value = /*data*/ ctx[0].translation + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -1202,8 +1202,8 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "container svelte-as7948");
-    			add_location(div, file$3, 50, 2, 1263);
-    			add_location(main, file$3, 48, 0, 1234);
+    			add_location(div, file$3, 50, 2, 1277);
+    			add_location(main, file$3, 48, 0, 1248);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1293,7 +1293,7 @@ var app = (function () {
     		evaluation.type = "error";
 
     		if (item.wc_diff <= -10) {
-    			evaluation.description = "The translation has readability issues. It is considerably shorter than the original sentence. ";
+    			evaluation.description = "The translation has readability issues. It considerably differs in length from the original sentence. ";
     		}
 
     		if (item.ff_count >= 1) {
@@ -1301,7 +1301,7 @@ var app = (function () {
     		}
     	} else if (item.wc_diff <= -4) {
     		evaluation.type = "warning";
-    		evaluation.description = "The translation may have readability issues. It is shorter than the original sentence.";
+    		evaluation.description = "The translation may have readability issues. It differs in length from the original sentence.";
     	}
 
     	return evaluation;

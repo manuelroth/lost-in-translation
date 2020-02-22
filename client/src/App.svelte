@@ -13,7 +13,7 @@
 
       if (item.wc_diff <= -10) {
         evaluation.description =
-          "The translation has readability issues. It is considerably shorter than the original sentence. ";
+          "The translation has readability issues. It considerably differs in length from the original sentence. ";
       }
 
       if (item.ff_count >= 1) {
@@ -24,7 +24,7 @@
     } else if (item.wc_diff <= -4) {
       evaluation.type = "warning";
       evaluation.description =
-        "The translation may have readability issues. It is shorter than the original sentence.";
+        "The translation may have readability issues. It differs in length from the original sentence.";
     }
     return evaluation;
   }

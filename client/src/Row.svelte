@@ -1,8 +1,21 @@
 <script>
   export let data;
+  $: elementHovered = false;
+
+  function mouseOver() {
+    elementHovered = true;
+  }
+
+  function mouseLeave() {
+    elementHovered = false;
+  }
 </script>
 
 <style>
+  .hovered {
+    visibility: visible !important;
+  }
+
   .row {
     display: flex;
     flex-direction: row;
@@ -52,10 +65,6 @@
     position: absolute;
     z-index: 1;
   }
-
-  .highlight:hover .tooltiptext {
-    visibility: visible;
-  }
 </style>
 
 <main>
@@ -63,9 +72,14 @@
     <div class="left">{data.original}</div>
     <div class="right">
       {#if data.type}
-        <div class="highlight">
+        <div
+          class="highlight"
+          on:mouseover={mouseOver}
+          on:mouseleave={mouseLeave}>
           <span class="highlight--{data.type}">{data.translation}</span>
-          <div class="tooltiptext">{data.description}</div>
+          <div class:hovered={elementHovered} class="tooltiptext">
+            {data.description}
+          </div>
         </div>
       {:else}{data.translation}{/if}
     </div>

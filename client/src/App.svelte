@@ -8,11 +8,12 @@
       type: "",
       description: ""
     };
-    if (item.wc_diff <= -4) {
-      evaluation.type = "warning";
-    } else if (item.wc_diff <= -10) {
+    if (item.wc_diff <= -10) {
       evaluation.type = "error";
+    } else if (item.wc_diff <= -4) {
+      evaluation.type = "warning";
     }
+
     evaluation.description = `The translation is ${Math.abs(
       item.wc_diff
     )} words shorter than the original sentence. This could indicate potential problems with the translation.`;

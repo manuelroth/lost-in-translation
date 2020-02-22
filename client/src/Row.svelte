@@ -41,9 +41,12 @@
   .highlight .tooltiptext {
     visibility: hidden;
     width: 100%;
-    background-color: white;
+    background-color: #f9f9f9;
     color: black;
-    padding: 5px 0;
+    padding: 8px;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75);
 
     /* Position the tooltip */
     position: absolute;

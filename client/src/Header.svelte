@@ -14,6 +14,7 @@
     height: 40px;
     padding: 0 8px;
     margin-bottom: 16px;
+    z-index: 2;
   }
 
   .left {

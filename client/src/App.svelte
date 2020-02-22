@@ -32,9 +32,17 @@
   });
 </script>
 
+<style>
+  .container {
+    z-index: -1;
+  }
+</style>
+
 <main>
   <Header {rows} />
-  {#each rows as row}
-    <Row data={row} />
-  {/each}
+  <div class="container">
+    {#each rows as row}
+      <Row data={row} />
+    {/each}
+  </div>
 </main>

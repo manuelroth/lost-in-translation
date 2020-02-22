@@ -23,11 +23,14 @@
     padding-left: 6px;
   }
 
-  .highlighted {
-    color: black;
-    text-decoration: none;
-    border-bottom: 2px solid #dad6ff;
-    box-shadow: 0 -9px #dad6ff inset;
+  .highlight--warning {
+    border-bottom: 2px solid #fdfdaf;
+    box-shadow: 0 -9px #fdfdaf inset;
+  }
+
+  .highlight--error {
+    border-bottom: 2px solid #ff9aa2;
+    box-shadow: 0 -9px #ff9aa2 inset;
   }
 </style>
 
@@ -35,7 +38,7 @@
   <div class="row">
     <div class="left">{data.original}</div>
     <div class="right">
-      <span class:highlighted={data.isHighlighted}>{data.translation}</span>
+      <span class="highlight--{data.type}">{data.translation}</span>
     </div>
   </div>
 </main>

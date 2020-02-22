@@ -1,51 +1,35 @@
 <script>
   import Header from "./Header.svelte";
   import Row from "./Row.svelte";
-  let data = [
-    [
-      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
-      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
-      true
-    ],
-    [
-      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
-      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
-      false
-    ],
-    [
-      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
-      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
-      false
-    ],
-    [
-      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
-      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
-      false
-    ],
-    [
-      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
-      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
-      false
-    ],
-    [
-      "Wegen eines Sprungs in den Bachalpsee und eines Getränks auf der Aussichtsterrasse auf dem Faulhorn, von der aus Eiger, Mönch und Jungfrau zu sehen sind.",
-      "Cool off with a jump into the Bachalpsee lake and sip a drink on the Faulhorn’s observation deck. From here, you can see three of the most famous Swiss mountains: Eiger, Mönch and Jungfrau.",
-      true
-    ]
-  ];
+  import data from "./data/data.csv";
 
-  let rows = data.map(data => {
+  function getEvaluation(item) {
+    let evaluation = {
+      type: "",
+      description: ""
+    };
+    if (item.wc_diff <= -4) {
+      evaluation.type = "warning";
+    } else if (item.wc_diff <= -10) {
+      evaluation.type = "error";
+    }
+    evaluation.description = `The translation is ${Math.abs(
+      item.wc_diff
+    )} words shorter than the original sentence. This could indicate potential problems with the translation.`;
+
+    return evaluation;
+  }
+
+  const rows = data.map(item => {
+    const evaluation = getEvaluation(item);
     return {
-      original: data[0],
-      translation: data[1],
-      isHighlighted: data[2]
+      original: item.de_art,
+      translation: item.en_art,
+      type: evaluation.type,
+      description: evaluation.description
     };
   });
 </script>
-
-<style>
-
-</style>
 
 <main>
   <Header {rows} />

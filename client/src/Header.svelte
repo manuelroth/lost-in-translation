@@ -32,7 +32,7 @@
 <div class="header">
   <div class="left">Original</div>
   <div class="right">
-    <div>Translated</div>
+    <div>Translation</div>
     <Legend {rows} />
   </div>
 </div>

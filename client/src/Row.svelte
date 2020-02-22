@@ -38,7 +38,9 @@
   <div class="row">
     <div class="left">{data.original}</div>
     <div class="right">
-      <span class="highlight--{data.type}">{data.translation}</span>
+      {#if data.type}
+        <span class="highlight--{data.type}">{data.translation}</span>
+      {:else}{data.description}{/if}
     </div>
   </div>
 </main>

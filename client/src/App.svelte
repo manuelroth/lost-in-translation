@@ -8,16 +8,24 @@
       type: "",
       description: ""
     };
-    if (item.wc_diff <= -10) {
+    if (item.wc_diff <= -10 || item.ff_count >= 1) {
       evaluation.type = "error";
+
+      if (item.wc_diff <= -10) {
+        evaluation.description =
+          "The translation has readability issues. It is considerably shorter than the original sentence. ";
+      }
+
+      if (item.ff_count >= 1) {
+        evaluation.description =
+          evaluation.description +
+          "The translation contains an error. Please check the translation for false friends.";
+      }
     } else if (item.wc_diff <= -4) {
       evaluation.type = "warning";
+      evaluation.description =
+        "The translation may have readability issues. It is shorter than the original sentence.";
     }
-
-    evaluation.description = `The translation is ${Math.abs(
-      item.wc_diff
-    )} words shorter than the original sentence. This could indicate potential problems with the translation.`;
-
     return evaluation;
   }
 

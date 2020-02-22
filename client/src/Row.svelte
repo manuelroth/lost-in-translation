@@ -9,6 +9,14 @@
   function mouseLeave() {
     elementHovered = false;
   }
+
+  window.addEventListener(
+    "scroll",
+    function() {
+      elementHovered = false;
+    },
+    false
+  );
 </script>
 
 <style>

@@ -32,6 +32,27 @@
     border-bottom: 2px solid #ff9aa2;
     box-shadow: 0 -9px #ff9aa2 inset;
   }
+
+  .highlight {
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight .tooltiptext {
+    visibility: hidden;
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .highlight:hover .tooltiptext {
+    visibility: visible;
+  }
 </style>
 
 <main>
@@ -39,7 +60,10 @@
     <div class="left">{data.original}</div>
     <div class="right">
       {#if data.type}
-        <span class="highlight--{data.type}">{data.translation}</span>
+        <div class="highlight">
+          <span class="highlight--{data.type}">{data.translation}</span>
+          <div class="tooltiptext">{data.description}</div>
+        </div>
       {:else}{data.description}{/if}
     </div>
   </div>
